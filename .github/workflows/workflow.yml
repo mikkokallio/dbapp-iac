@@ -3,7 +3,9 @@ name: deploy-infrastructure-website
 on:
   push:
     branches:
-    - main
+      - main
+    paths:
+      - 'deploy/**'
 
 env:
     ENVIRONMENT: prod
