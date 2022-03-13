@@ -1,5 +1,5 @@
 @description('The Azure region into which the resources should be deployed.')
-param location string = 'northeurope' 
+param location string = 'norwayeast' 
 
 @description('The type of environment. This must be nonprod or prod.')
 @allowed([
@@ -76,7 +76,7 @@ param adminPassword string
 
 resource pgsql 'Microsoft.DBForPostgreSQL/servers@2017-12-01' = {
   name: 'postgres-dbapp'
-  location: 'swedencentral'//location
+  location: location
   sku: {
     name: 'B_Gen5_1'
     tier: 'Basic'
