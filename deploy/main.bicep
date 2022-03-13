@@ -1,5 +1,5 @@
 @description('The Azure region into which the resources should be deployed.')
-param location string = resourceGroup().location
+param location string = 'northeurope' 
 
 @description('The type of environment. This must be nonprod or prod.')
 @allowed([
@@ -72,7 +72,7 @@ resource appServiceApp 'Microsoft.Web/sites@2020-06-01' = {
 
 resource toyManualsStorageAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
   name: toyManualsStorageAccountName
-  location: resourceGroup().location
+  location: location
   kind: 'StorageV2'
   sku: environmentConfigurationMap[environmentType].toyManualsStorageAccount.sku
 }
