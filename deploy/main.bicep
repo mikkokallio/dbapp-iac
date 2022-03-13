@@ -70,14 +70,13 @@ resource appServiceApp 'Microsoft.Web/sites@2020-06-01' = {
   }
 }
 
-@secure()
 param adminUser string
+@secure()
 param adminPassword string
-
 
 resource pgsql 'Microsoft.DBForPostgreSQL/servers@2017-12-01' = {
   name: 'postgres-dbapp'
-  location: location
+  location: 'swedencentral'//location
   sku: {
     name: 'B_Gen5_1'
     tier: 'Basic'
