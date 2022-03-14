@@ -1,15 +1,13 @@
 @description('The Azure region into which the resources should be deployed.')
-param location string = 'swedencentral'
-
-var sku = {
-  name: 'F1'
-  capacity: 1
-}
+param location string = 'norwayeast'
 
 resource appServicePlan 'Microsoft.Web/serverFarms@2020-06-01' = {
   name: 'F1'
   location: location
-  sku: sku
+  sku: {
+    name: 'F1'
+    capacity: 1
+  }
 }
 
 @secure()
